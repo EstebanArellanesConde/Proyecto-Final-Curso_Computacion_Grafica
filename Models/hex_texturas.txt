@@ -1,0 +1,19 @@
+En l¡nea: 1 Car cter: 9
++ foreach(\(f in (Get-ChildItem -Filter *.png), (Get-ChildItem -Filter  ...
++         ~
+Falta el nombre de variable despu‚s de foreach.
+En l¡nea: 1 Car cter: 77
++ ... Get-ChildItem -Filter *.png), (Get-ChildItem -Filter *.jpg)){ Write-H ...
++                                                                 ~
+Falta la llave de cierre "}" en el bloque de instrucciones o la definici¢n de tipo.
+En l¡nea: 1 Car cter: 97
++ ... r *.png), (Get-ChildItem -Filter *.jpg)){ Write-Host '=== '\)f.Name ' ...
++                                                                 ~
+Token ')' inesperado en la expresi¢n o la instrucci¢n.
+En l¡nea: 1 Car cter: 136
++ ... r *.jpg)){ Write-Host '=== '\)f.Name ' ==='; Format-Hex $f.FullName }
++                                                                         ~
+Token '}' inesperado en la expresi¢n o la instrucci¢n.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingVariableNameAfterForeach
+ 
