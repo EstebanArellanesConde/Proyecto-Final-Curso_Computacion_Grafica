@@ -14,14 +14,13 @@
     <ProjectGuid>{C3CFF0CC-F780-4848-9886-80A3198DE559}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <CourseBase Condition="'$(CourseBase)' == '' And Exists('$(MSBuildProjectDirectory)\..\ConfigInicial\Camera.h')">$(MSBuildProjectDirectory)\..\ConfigInicial</CourseBase>
-    <CourseBase Condition="'$(CourseBase)' == ''">D:\GH\Proyecto-Final-Curso_Computacion_Grafica\ConfigInicial</CourseBase>
+    <CourseBase Condition="'$(CourseBase)' == ''">$(MSBuildProjectDirectory)\..\ConfigInicial</CourseBase>
     <CourseLibraries>$(CourseBase)\External Libraries</CourseLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset Condition="'$(PlatformToolset)' == ''">$(DefaultPlatformToolset)</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -53,11 +52,14 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="CheckCourseBase" BeforeTargets="PrepareForBuild">
-    <Error Condition="!Exists('$(CourseBase)\Camera.h')" Text="Indica la carpeta ConfigInicial de la practica en la propiedad CourseBase." />
+    <Error Condition="!Exists('$(CourseBase)\Camera.h')" Text="Falta ConfigInicial al lado de Janitzio. Descarga el repositorio completo o indica su ubicación con la propiedad CourseBase." />
   </Target>
   <Target Name="CopySceneResources" AfterTargets="Build">
     <Copy SourceFiles="$(CourseBase)\glew32.dll" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="Shader\mapa.vs;Shader\mapa.frag" DestinationFolder="$(OutDir)Shader" SkipUnchangedFiles="true" />
-    <Copy Condition="Exists('Assets\modelos.bin') And Exists('Assets\materiales.png')" SourceFiles="Assets\modelos.bin;Assets\materiales.png" DestinationFolder="$(OutDir)Assets" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Shader\mapa.vs;$(MSBuildProjectDirectory)\Shader\mapa.frag"
+          DestinationFolder="$(OutDir)Shader" SkipUnchangedFiles="true" />
+    <Copy Condition="Exists('$(MSBuildProjectDirectory)\Assets\modelos.bin') And Exists('$(MSBuildProjectDirectory)\Assets\materiales.png')"
+          SourceFiles="$(MSBuildProjectDirectory)\Assets\modelos.bin;$(MSBuildProjectDirectory)\Assets\materiales.png"
+          DestinationFolder="$(OutDir)Assets" SkipUnchangedFiles="true" />
   </Target>
 </Project>
