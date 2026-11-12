@@ -5,6 +5,10 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C3CFF0CC-F780-4848-9886-80A3198DE559}</ProjectGuid>
@@ -17,7 +21,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -54,7 +58,6 @@
   <Target Name="CopySceneResources" AfterTargets="Build">
     <Copy SourceFiles="$(CourseBase)\glew32.dll" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
     <Copy SourceFiles="Shader\mapa.vs;Shader\mapa.frag" DestinationFolder="$(OutDir)Shader" SkipUnchangedFiles="true" />
-    <Copy Condition="Exists('Assets\modelos.bin') And Exists('Assets\materiales.png')"
-          SourceFiles="Assets\modelos.bin;Assets\materiales.png" DestinationFolder="$(OutDir)Assets" SkipUnchangedFiles="true" />
+    <Copy Condition="Exists('Assets\modelos.bin') And Exists('Assets\materiales.png')" SourceFiles="Assets\modelos.bin;Assets\materiales.png" DestinationFolder="$(OutDir)Assets" SkipUnchangedFiles="true" />
   </Target>
 </Project>

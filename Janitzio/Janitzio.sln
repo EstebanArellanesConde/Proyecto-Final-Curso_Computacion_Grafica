@@ -1,15 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.37614.0 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12201.205 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Janitzio", "Janitzio.vcxproj", "{C3CFF0CC-F780-4848-9886-80A3198DE559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3CFF0CC-F780-4848-9886-80A3198DE559}.Debug|x64.ActiveCfg = Debug|x64
+		{C3CFF0CC-F780-4848-9886-80A3198DE559}.Debug|x64.Build.0 = Debug|x64
 		{C3CFF0CC-F780-4848-9886-80A3198DE559}.Debug|x86.ActiveCfg = Debug|Win32
 		{C3CFF0CC-F780-4848-9886-80A3198DE559}.Debug|x86.Build.0 = Debug|Win32
 	EndGlobalSection
